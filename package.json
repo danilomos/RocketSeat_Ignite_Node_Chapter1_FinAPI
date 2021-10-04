@@ -1,0 +1,17 @@
+{
+  "name": "rocketseat_ignite_node_chapter1",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/danilomos/RocketSeat_Ignite_Node_Chapter1.git",
+  "author": "Danilo Moreira da Silva <xliudanilox@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
