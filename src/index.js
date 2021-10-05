@@ -1,4 +1,3 @@
-const { response } = require("express");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const PORT = 3333;
@@ -115,6 +114,25 @@ app.get("/account", verifyIfExistsAccountCPF, (req, res) => {
     const { customer } = req;
 
     return res.json(customer);
+});
+
+
+app.delete("/account", verifyIfExistsAccountCPF, (req, res) => {
+    const { customer } = req;
+
+    const customerIndex = customers.findIndex((_customer) => _customer.cpf === customer.cpf);
+
+    customers.splice(customerIndex, 1);
+
+    return res.status(200).json(customers);
+});
+
+app.get("/balance", verifyIfExistsAccountCPF, (req, res) => {
+    const { customer } = req;
+
+    const balance = getBalance(customer.statement);
+
+    return res.json(balance);
 });
 
 app.listen(PORT);
