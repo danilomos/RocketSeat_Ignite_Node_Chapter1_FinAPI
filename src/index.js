@@ -102,4 +102,19 @@ app.get("/statement/date", verifyIfExistsAccountCPF, (req, res) => {
     return res.json(statement);
 });
 
+app.patch("/account", verifyIfExistsAccountCPF, (req, res) => {
+    const { customer } = req;
+    const { name } = req.body;
+
+    customer.name = name;
+
+    return res.sendStatus(201);
+});
+
+app.get("/account", verifyIfExistsAccountCPF, (req, res) => {
+    const { customer } = req;
+
+    return res.json(customer);
+});
+
 app.listen(PORT);
